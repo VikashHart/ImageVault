@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-class ImageStorage {
+protocol ImageHandling {
+    func saveImages(images: [UIImage])
+    func getImages() -> [UIImage]
+    func deleteImages(images: [UIImage])
+}
+class ImageStorage: ImageHandling {
     static let shared = ImageStorage()
     private var imageCache: [String] = []
 
@@ -58,5 +63,9 @@ class ImageStorage {
         }
 
         return savedImages
+    }
+
+    func deleteImages(images: [UIImage]) {
+        //todo: add image removal
     }
 }
