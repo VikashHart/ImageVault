@@ -16,6 +16,7 @@
 		A1D1D11D290F46B7009A20AD /* ImageVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D11C290F46B7009A20AD /* ImageVaultTests.swift */; };
 		A1D1D128290F46B7009A20AD /* ImageVaultUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D127290F46B7009A20AD /* ImageVaultUITests.swift */; };
 		A1D1D137290F4747009A20AD /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D136290F4747009A20AD /* LandingView.swift */; };
+		A1D1D13A2910B17E009A20AD /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D1392910B17E009A20AD /* ImageStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A1D1D127290F46B7009A20AD /* ImageVaultUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVaultUITests.swift; sourceTree = "<group>"; };
 		A1D1D129290F46B8009A20AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1D1D136290F4747009A20AD /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		A1D1D1392910B17E009A20AD /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		A1D1D104290F46B4009A20AD /* ImageVault */ = {
 			isa = PBXGroup;
 			children = (
+				A1D1D1382910B071009A20AD /* Storage */,
 				A1D1D105290F46B4009A20AD /* AppDelegate.swift */,
 				A1D1D107290F46B4009A20AD /* SceneDelegate.swift */,
 				A1D1D135290F470F009A20AD /* LandingPage */,
@@ -137,6 +140,14 @@
 				A1D1D136290F4747009A20AD /* LandingView.swift */,
 			);
 			path = LandingPage;
+			sourceTree = "<group>";
+		};
+		A1D1D1382910B071009A20AD /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A1D1D1392910B17E009A20AD /* ImageStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			files = (
 				A1D1D137290F4747009A20AD /* LandingView.swift in Sources */,
 				A1D1D10A290F46B4009A20AD /* ViewController.swift in Sources */,
+				A1D1D13A2910B17E009A20AD /* ImageStorage.swift in Sources */,
 				A1D1D106290F46B4009A20AD /* AppDelegate.swift in Sources */,
 				A1D1D108290F46B4009A20AD /* SceneDelegate.swift in Sources */,
 			);
