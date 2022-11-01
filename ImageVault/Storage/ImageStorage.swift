@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 class ImageStorage {
+    static let shared = ImageStorage()
+    private var imageCache: [String] = []
+
     private func saveImage(image: UIImage) -> String {
         guard let data = image.jpegData(compressionQuality: 0) else { return "Save action failed" }
         let imageData = NSData(data: data)
@@ -23,7 +26,37 @@ class ImageStorage {
     func saveImages(images: [UIImage]) {
         guard images.count > 0 else { return }
         for image in images {
-            saveImage(image: image)
+            imageCache.append(saveImage(image: image))
         }
+    }
+
+    private func getFilePath(fileName: String) -> String? {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        var filePath: String?
+        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if paths.count > 0 {
+            let dirPath = paths[0] as NSString
+            filePath = dirPath.appendingPathComponent(fileName)
+        }
+        else {
+            filePath = nil
+        }
+
+        return filePath
+    }
+
+    func getImages() -> [UIImage] {
+        let imageNames = imageCache
+        var savedImages: [UIImage] = [UIImage]()
+
+        for imageName in imageNames {
+            if let imagePath = getFilePath(fileName: imageName) {
+                guard let image = UIImage(contentsOfFile: imagePath) else { return [] }
+                savedImages.append(image)
+            }
+        }
+
+        return savedImages
     }
 }
