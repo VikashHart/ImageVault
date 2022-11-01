@@ -27,5 +27,34 @@ class ViewController: UIViewController {
             view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+
+    private func getFilePath(fileName: String) -> String? {
+         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+         let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+         var filePath: String?
+         let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+         if paths.count > 0 {
+             let dirPath = paths[0] as NSString
+             filePath = dirPath.appendingPathComponent(fileName)
+         }
+         else {
+             filePath = nil
+         }
+
+         return filePath
+     }
+
+     func getImage(imageNames: [String]) -> [UIImage] {
+         var savedImages: [UIImage] = [UIImage]()
+
+         for imageName in imageNames {
+             if let imagePath = getFilePath(fileName: imageName) {
+                 guard let image = UIImage(contentsOfFile: imagePath) else { return [] }
+                 savedImages.append(image)
+             }
+         }
+
+         return savedImages
+     }
 }
 
